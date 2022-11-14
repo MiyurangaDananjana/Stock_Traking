@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E18DD641-D3EA-44D1-B44F-B54928EA319C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Stock_Traking</RootNamespace>
+    <AssemblyName>Stock_Traking</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\CategoryBLL.cs" />
+    <Compile Include="BLL\CustomerBLL.cs" />
+    <Compile Include="BLL\IBLL.cs" />
+    <Compile Include="DAL\CATEGORY.cs">
+      <DependentUpon>StockModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\CUSTOMER.cs">
+      <DependentUpon>StockModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DAO\CategoryDAO.cs" />
+    <Compile Include="DAL\DAO\CustomerDAO.cs" />
+    <Compile Include="DAL\DAO\Stock_Context.cs" />
+    <Compile Include="DAL\DTO\CategoryDetailDTO.cs" />
+    <Compile Include="DAL\DTO\CategoryDTO.cs" />
+    <Compile Include="DAL\DAO\IDAO.cs" />
+    <Compile Include="DAL\DTO\CustomerDetailDTO.cs" />
+    <Compile Include="DAL\DTO\CustomerDTO.cs" />
+    <Compile Include="DAL\PRODUCT.cs">
+      <DependentUpon>StockModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\SALE.cs">
+      <DependentUpon>StockModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\StockModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StockModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\StockModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StockModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\StockModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StockModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddStock.Designer.cs">
+      <DependentUpon>frmAddStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCategory.Designer.cs">
+      <DependentUpon>frmCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCategory_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCategory_List.Designer.cs">
+      <DependentUpon>frmCategory_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCustomer.Designer.cs">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCustomer_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCustomer_list.Designer.cs">
+      <DependentUpon>frmCustomer_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDelete.Designer.cs">
+      <DependentUpon>frmDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProduct.Designer.cs">
+      <DependentUpon>frmProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProduct_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProduct_List.Designer.cs">
+      <DependentUpon>frmProduct_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSalesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSalesList.Designer.cs">
+      <DependentUpon>frmSalesList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmsales_alert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmsales_alert.Designer.cs">
+      <DependentUpon>frmsales_alert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="General.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sale.Designer.cs">
+      <DependentUpon>Sale.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmAddStock.resx">
+      <DependentUpon>frmAddStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCategory.resx">
+      <DependentUpon>frmCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCategory_List.resx">
+      <DependentUpon>frmCategory_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCustomer.resx">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCustomer_list.resx">
+      <DependentUpon>frmCustomer_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDelete.resx">
+      <DependentUpon>frmDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProduct.resx">
+      <DependentUpon>frmProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProduct_List.resx">
+      <DependentUpon>frmProduct_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSalesList.resx">
+      <DependentUpon>frmSalesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmsales_alert.resx">
+      <DependentUpon>frmsales_alert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Sale.resx">
+      <DependentUpon>Sale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="DAL\StockModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StockModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DAL\StockModel.edmx.diagram">
+      <DependentUpon>StockModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DAL\StockModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>StockModel.Context.cs</LastGenOutput>
+      <DependentUpon>StockModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="DAL\StockModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StockModel.edmx</DependentUpon>
+      <LastGenOutput>StockModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
